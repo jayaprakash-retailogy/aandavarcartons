@@ -83,7 +83,7 @@
 
                                         <div class="col-md-3 mb-4">
                                             <label for="terms_of_payment">Terms of payment</label>
-                                            <input type="text" class="form-control" id="terms_of_payment" placeholder="Purchase Order Number" name="terms_of_payment" value="{{ (isset($getpo->terms_of_payment) && !empty($getpo->terms_of_payment)?$getpo->terms_of_payment:'') }}">
+                                            <input type="number" class="form-control" id="terms_of_payment" placeholder="Terms of Payment" name="terms_of_payment" value="{{ (isset($getpo->terms_of_payment) && !empty($getpo->terms_of_payment)?$getpo->terms_of_payment:'') }}">
                                         </div>
 
                                     </div>

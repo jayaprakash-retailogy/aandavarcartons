@@ -33,9 +33,13 @@
                         GSTIN: {{$setting->gst ?? ''}}<br>
                        
                    </td>
+                   @php
+                    $startyear = ( date('m') < 4) ? date('Y') - 1 : date('Y');
+                    $endyear = ( date('m') > 3) ? date('Y') + 1 : date('Y');
+                   @endphp
                    <td width=25% height=25>
                        Invoice No.<br>
-                       <b>{{ $getinvoice->invid }}/{{Carbon\Carbon::now()->format('Y')}}</b>
+                       <b>{{ $getinvoice->invid }}/{{ $startyear }}-{{$endyear}}</b>
                    </td>
                    <td width=25% height=25>
                        Dated<br>
@@ -111,7 +115,7 @@
                <tr>
                    <td width=25% height=25 colspan=2>
                        Terms of Delivery<br>
-                   <b>&nbsp;{{ $getinvoice->termsofdelivery }}</b>
+                   <b>&nbsp;{{ $getinvoice->termsofdelivery }} Days</b>
                    </td>
                </tr>
             </table>

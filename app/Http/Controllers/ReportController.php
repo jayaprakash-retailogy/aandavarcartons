@@ -21,7 +21,7 @@ class ReportController extends Controller
         ->leftjoin('invoice as in', 'in.id', 'ini.invoiceid')
         ->leftjoin('purchase_orders as po', 'in.pono', 'po.id')
         ->leftjoin('customer as c', 'c.id', 'in.customerid')
-        ->select('ini.description as inidesc', 'ini.quantity as iniqty', 'ini.rate as inirate', 'ini.cgstvalue', 'ini.sgstvalue', 'ini.cgst', 'ini.sgst', 'ini.taxable', 'in.date as invdate', 'in.id as invid', 'c.name as cusname', 'po.purchaseordernumber as ponumber')
+        ->select('ini.description as inidesc', 'ini.quantity as iniqty', 'ini.rate as inirate', 'ini.cgstvalue', 'ini.sgstvalue', 'ini.cgst', 'ini.sgst', 'ini.taxable', 'in.date as invdate', 'in.id as invid', 'c.name as cusname', 'po.purchaseordernumber as ponumber', 'po.purchaseorderdate', 'po.terms_of_payment')
         ->get();
 
         return view('report.purchase', compact('purchases'));
