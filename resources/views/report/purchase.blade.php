@@ -65,6 +65,25 @@
                                                             <th>over due date</th>
                                                         </tr>
                                                     </thead>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Invoice Date</th>
+                                                            <th>Invoice No</th>
+                                                            <th>Customer Name</th>
+                                                            <th>Customer PO</th>
+                                                            <th>Material Description</th>
+                                                            <th>Qty</th>
+                                                            <th>Rate</th>
+                                                            <th>Tax Amount</th>
+                                                            <th>Tax code</th>
+                                                            <th>cgst</th>
+                                                            <th>sgst</th>
+                                                            <th>Total invoice value</th>
+                                                            <th>amount due date</th>
+                                                            <th>over due date</th>
+                                                        </tr>
+                                                    </tfoot>
                                                     <tbody>
                                                     @php
                                                         $i = 1;
@@ -81,10 +100,10 @@
                                                             <td>{{ $purchase->inirate }}</td>
                                                             <td>{{ $purchase->cgstvalue+$purchase->sgstvalue }}</td>
                                                             <td>{{ $purchase->cgst+$purchase->sgst }}</td>
-                                                            <td>{{ $purchase->cgstvalue }}</td>
-                                                            <td>{{ $purchase->sgstvalue }}</td>
+                                                            <td>{{ $purchase->cgst }}</td>
+                                                            <td>{{ $purchase->sgst }}</td>
                                                             <td>{{ $purchase->cgstvalue+$purchase->sgstvalue+$purchase->taxable }}</td>
-                                                            <td>{{ Carbon\Carbon::parse($purchase->purchaseorderdate)->addDays($purchase->terms_of_payment) }}</td>
+                                                            <td>{{ '--' }}</td>
                                                             <td>{{ '--' }}</td>
                                                         </tr>
                                                         @php

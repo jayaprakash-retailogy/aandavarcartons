@@ -222,12 +222,6 @@
                                             <div class="col-sm-7 col-12 order-sm-1 order-0">
                                                 <div class="inv--total-amounts">
                                                     <div class="form-group row  mb-4">
-                                                        <label for="" class="col-sm-8 col-form-label col-form-label-sm text-sm-right">Total Quantity</label>
-                                                        <div class="col-sm-4">
-                                                            <input type="text" class="form-control form-control-sm" id="totalquantity" placeholder="ex: 56789" name="totalquantity" value="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row  mb-4">
                                                         <label for="" class="col-sm-8 col-form-label col-form-label-sm text-sm-right">Tax Total</label>
                                                         <div class="col-sm-4">
                                                             <input type="text" class="form-control form-control-sm" id="taxtotal" placeholder="ex: 5689" name="taxtotal" value="{{ (isset($getinvoice->taxable) && !empty($getinvoice->taxable)?$getinvoice->taxable:'') }}">
@@ -411,11 +405,6 @@
                     igst += parseFloat( $(this).val() );
                 }
             });
-            $('.quantity').each(function() {
-                if($(this).val() != '' ) {
-                    q += parseFloat( $(this).val() );
-                }
-            });
             if(igst != '' || igst != '0') {
                 gst = igst;
             } else if ((cgst != '0' && sgst != '0') || (cgst != '' && sgst != '')) {
@@ -423,7 +412,6 @@
             }
 
             //tax = (tt * gst)/100;
-            $('#totalquantity').val(q);
             $('#taxtotal').val(gst);
             $('#subtotal').val(tt);
             gt = gst+tt;
