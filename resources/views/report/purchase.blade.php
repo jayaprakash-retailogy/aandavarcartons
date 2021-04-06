@@ -56,6 +56,7 @@
                                                             <th>Material Description</th>
                                                             <th>Qty</th>
                                                             <th>Rate</th>
+                                                            <th>Amount</th>
                                                             <th>Tax Amount</th>
                                                             <th>Tax code</th>
                                                             <th>cgst</th>
@@ -79,6 +80,7 @@
                                                             <td>{{ $purchase->inidesc }}</td>
                                                             <td>{{ $purchase->iniqty }}</td>
                                                             <td>{{ $purchase->inirate }}</td>
+                                                            <td>{{ $purchase->taxable }}</td>
                                                             <td>{{ $purchase->cgstvalue+$purchase->sgstvalue }}</td>
                                                             <td>{{ $purchase->cgst+$purchase->sgst }}</td>
                                                             <td>{{ $purchase->cgstvalue }}</td>
