@@ -53,7 +53,7 @@
                    </td>
                    <td width=25% height=25>
                        Mode/Terms of Payment<br>
-                   <b>&nbsp;{{ $getinvoice->terms_of_payment }}</b>
+                   <b>&nbsp;{{ $getinvoice->terms_of_payment }} Days</b>
                    </td>
                </tr>
                <tr>
@@ -178,7 +178,7 @@
                               <td>@php echo $i = $i + 1;; @endphp</td>
                               <td align=center>{{ ucwords($invoiceitem->description) }}</td>
                               <td align=center>{{ $invoiceitem->hsnsac }}</td>
-                              <td align=center>{{ $invoiceitem->quantity }} {{ $invoiceitem->unit }}</td>
+                              <td align=center>{{ $invoiceitem->quantity }}</td>
                               <td align=center>{{ $invoiceitem->rate }}</td>
                               <td align=right>{{ $invoiceitem->unit }}</td>
                               <td align=right>{{ $invoiceitem->discount }}</td>
@@ -261,9 +261,13 @@
                         GSTIN: {{$setting->gst ?? ''}}<br>
                        
                    </td>
+                   @php
+                    $startyear = ( date('m') < 4) ? date('Y') - 1 : date('Y');
+                    $endyear = ( date('m') > 3) ? date('Y') + 1 : date('Y');
+                   @endphp
                    <td width=25% height=25>
                        Invoice No.<br>
-                       <b>{{ $getinvoice->invid ?? '' }}/{{Carbon\Carbon::now()->format('Y')}}</b>
+                       <b>{{ $getinvoice->invid }}/{{ $startyear }}-{{$endyear}}</b>
                    </td>
                    <td width=25% height=25>
                        Dated<br>
@@ -277,7 +281,7 @@
                    </td>
                    <td width=25% height=25>
                        Mode/Terms of Payment<br>
-                   <b>&nbsp;{{ $getinvoice->terms_of_payment }}</b>
+                   <b>&nbsp;{{ $getinvoice->terms_of_payment }} Days</b>
                    </td>
                </tr>
                <tr>
@@ -339,7 +343,7 @@
                <tr>
                    <td width=25% height=25 colspan=2>
                        Terms of Delivery<br>
-                   <b>&nbsp;{{ $getinvoice->termsofdelivery }}</b>
+                   <b>&nbsp;{{ $getinvoice->termsofdelivery }} Days</b>
                    </td>
                </tr>
             </table>
@@ -402,7 +406,7 @@
                               <td>@php echo $i = $i + 1;; @endphp</td>
                               <td align=center>{{ ucwords($invoiceitem->description) }}</td>
                               <td align=center>{{ $invoiceitem->hsnsac }}</td>
-                              <td align=center>{{ $invoiceitem->quantity }} {{ $invoiceitem->unit }}</td>
+                              <td align=center>{{ $invoiceitem->quantity }}</td>
                               <td align=center>{{ $invoiceitem->rate }}</td>
                               <td align=right>{{ $invoiceitem->unit }}</td>
                               <td align=right>{{ $invoiceitem->discount }}</td>
@@ -448,7 +452,7 @@
                     echo ucwords($digit->format($getinvoice->totalamount)); @endphp Only.</b>
                 <h4 style="text-align: center;"><U>BANK ACCOUNT DETAILS</U></h4>
                         A/C Number : 05320500000085<br>
-                        A/C Name : {{ $setting->name ?? ''}}<br>
+                        A/C Name : {{ $setting->name ?? '' }}<br>
                         IFSC : BAROTHEAGA<br>
                         Bank Name : BANK OF BARODA<br>
                         Branch : T.NAGAR, CHENNAI<br><br>
@@ -485,9 +489,13 @@
                         GSTIN: {{$setting->gst ?? ''}}<br>
                        
                    </td>
+                   @php
+                    $startyear = ( date('m') < 4) ? date('Y') - 1 : date('Y');
+                    $endyear = ( date('m') > 3) ? date('Y') + 1 : date('Y');
+                   @endphp
                    <td width=25% height=25>
                        Invoice No.<br>
-                       <b>{{ $getinvoice->invid }}/{{Carbon\Carbon::now()->format('Y')}}</b>
+                       <b>{{ $getinvoice->invid }}/{{ $startyear }}-{{$endyear}}</b>
                    </td>
                    <td width=25% height=25>
                        Dated<br>
@@ -501,7 +509,7 @@
                    </td>
                    <td width=25% height=25>
                        Mode/Terms of Payment<br>
-                   <b>&nbsp;{{ $getinvoice->terms_of_payment }}</b>
+                   <b>&nbsp;{{ $getinvoice->terms_of_payment }} Days</b>
                    </td>
                </tr>
                <tr>
@@ -563,7 +571,7 @@
                <tr>
                    <td width=25% height=25 colspan=2>
                        Terms of Delivery<br>
-                   <b>&nbsp;{{ $getinvoice->termsofdelivery }}</b>
+                   <b>&nbsp;{{ $getinvoice->termsofdelivery }} Days</b>
                    </td>
                </tr>
             </table>
@@ -626,7 +634,7 @@
                               <td>@php echo $i = $i + 1;; @endphp</td>
                               <td align=center>{{ ucwords($invoiceitem->description) }}</td>
                               <td align=center>{{ $invoiceitem->hsnsac }}</td>
-                              <td align=center>{{ $invoiceitem->quantity }} {{ $invoiceitem->unit }}</td>
+                              <td align=center>{{ $invoiceitem->quantity }}</td>
                               <td align=center>{{ $invoiceitem->rate }}</td>
                               <td align=right>{{ $invoiceitem->unit }}</td>
                               <td align=right>{{ $invoiceitem->discount }}</td>
@@ -672,7 +680,7 @@
                     echo ucwords($digit->format($getinvoice->totalamount)); @endphp Only.</b>
                 <h4 style="text-align: center;"><U>BANK ACCOUNT DETAILS</U></h4>
                         A/C Number : 05320500000085<br>
-                        A/C Name : {{ $setting->name ?? ''}}<br>
+                        A/C Name : {{ $setting->name ?? '' }}<br>
                         IFSC : BAROTHEAGA<br>
                         Bank Name : BANK OF BARODA<br>
                         Branch : T.NAGAR, CHENNAI<br><br>
